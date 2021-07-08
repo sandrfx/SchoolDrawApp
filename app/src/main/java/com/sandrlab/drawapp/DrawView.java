@@ -61,6 +61,5 @@ public class DrawView extends View {
         mPaint.setStrokeWidth(STROKE_WIDTH);
         mPaint.setColor(Color.RED);
         mPaint.setStyle(Paint.Style.STROKE);
-        mPaint.setStrokeJoin(Paint.Join.ROUND);
     }
 }

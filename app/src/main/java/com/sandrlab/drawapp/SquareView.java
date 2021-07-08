@@ -17,9 +17,9 @@ import java.util.List;
 public class SquareView extends View {
 
     private Box mCurrentBox;
-    private List<Box> mBoxes = new ArrayList<>();
-    private Paint mBoxPaint;
-    private Paint mBackgroundPaint;
+    private final List<Box> mBoxes = new ArrayList<>();
+    private final Paint mBoxPaint = new Paint();
+    private final Paint mBackgroundPaint = new Paint();
 
     public SquareView(Context context) {
         this(context, null);
@@ -27,11 +27,7 @@ public class SquareView extends View {
 
     public SquareView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-
-        mBoxPaint = new Paint();
-        mBoxPaint.setColor(Color.BLACK);
-        mBackgroundPaint = new Paint();
-        mBackgroundPaint.setColor(Color.WHITE);
+        setUpPaint();
     }
 
     @Override
@@ -70,5 +66,16 @@ public class SquareView extends View {
                 break;
         }
         return true;
+    }
+
+    public void reset() {
+        mBoxes.clear();
+        invalidate();
+    }
+
+    private void setUpPaint() {
+        mBackgroundPaint.setColor(Color.WHITE);
+        mBoxPaint.setColor(Color.GREEN);
+        mBoxPaint.setStyle(Paint.Style.FILL_AND_STROKE);
     }
 }
