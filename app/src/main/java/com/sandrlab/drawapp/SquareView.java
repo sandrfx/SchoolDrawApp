@@ -19,7 +19,6 @@ public class SquareView extends View {
     private Box mCurrentBox;
     private final List<Box> mBoxes = new ArrayList<>();
     private final Paint mBoxPaint = new Paint();
-    private final Paint mBackgroundPaint = new Paint();
 
     public SquareView(Context context) {
         this(context, null);
@@ -32,8 +31,6 @@ public class SquareView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        canvas.drawPaint(mBackgroundPaint);
-
         for (Box box : mBoxes) {
             float left = Math.min(box.getOrigin().x, box.getCurrent().x);
             float right = Math.max(box.getOrigin().x, box.getCurrent().x);
@@ -74,8 +71,7 @@ public class SquareView extends View {
     }
 
     private void setUpPaint() {
-        mBackgroundPaint.setColor(Color.WHITE);
         mBoxPaint.setColor(Color.GREEN);
-        mBoxPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+        mBoxPaint.setStyle(Paint.Style.FILL);
     }
 }

@@ -18,8 +18,8 @@ public class DrawView extends View {
 
     private static final float STROKE_WIDTH = 10f;
 
-    private Paint mPaint = new Paint();
-    private Path mPath = new Path();
+    private final Paint mPaint = new Paint();
+    private final Path mPath = new Path();
 
     public DrawView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
